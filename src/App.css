@@ -18,13 +18,16 @@
 }
 
 .block-container div {
-    width: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
     /*flex-grow: 1;*/
 
+}
+
+.todo-text {
+    width: 500px;
 }
 
 .icon-undone {
@@ -45,6 +48,18 @@
     fill: red;
 }
 
+.icon-edit {
+    height: 1.5rem;
+    width: 1.5rem;
+    fill: #114d11;
+}
+
+.icon-start {
+    height: 2rem;
+    width: 2rem;
+    fill: #d818f3;
+}
+
 .start {
     font-size: 2rem;
     position: absolute;
@@ -58,6 +73,7 @@
 }
 
 .main-button {
+    width: 10%;
     border-radius: 5px;
     border-width: thin;
     background-color: white;
@@ -78,10 +94,28 @@
 }
 
 .main-input {
+    height: 35px;
     width: 100%;
-    margin-right: 7px;
-    border-color: darkred;
+    margin-right: 10px;
+    /*border-color: darkred;*/
     border-radius: 5px;
     border-width: thin;
 
+}
+
+.edition {
+    opacity: 0.5;
+}
+
+.input-edit {
+    height: 25px;
+    width: 100%;
+    margin-right: 7px;
+    border-radius: 3px;
+    border-width: thin;
+}
+
+.button-edit {
+    border: none;
+    background-color: white;
 }
