@@ -1,0 +1,87 @@
+.main-container {
+    padding-top: 40px;
+    margin-left: 27.5%;
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.block-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 5px;
+    padding: 5px;
+    border: #0084c2 1px solid;
+    border-radius: 5px;
+}
+
+.block-container div {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    /*flex-grow: 1;*/
+
+}
+
+.icon-undone {
+    height: 2rem;
+    width: 2rem;
+    fill: #9e00b4;
+}
+
+.icon-done {
+    height: 2rem;
+    width: 2rem;
+    fill: green;
+}
+
+.icon-delete {
+    height: 2rem;
+    width: 2rem;
+    fill: red;
+}
+
+.start {
+    font-size: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    border-radius: 10px;
+    border-width: thin;
+    background-color: white;
+}
+
+.main-button {
+    border-radius: 5px;
+    border-width: thin;
+    background-color: white;
+}
+
+.start-none {
+    display: none;
+}
+
+.input-container {
+    width: 990px;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.main-input {
+    width: 100%;
+    margin-right: 7px;
+    border-color: darkred;
+    border-radius: 5px;
+    border-width: thin;
+
+}
