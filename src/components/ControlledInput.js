@@ -1,7 +1,7 @@
 import Todo from '../utils/todo';
 import { useState, memo } from 'react';
 
-function ControlledInput({ handleList }) {
+function ControlledInput({ handleList, icon }) {
   const [text, setText] = useState('');
 
   const handleChange = (e) => {
@@ -17,8 +17,11 @@ function ControlledInput({ handleList }) {
   return (
     <div className={'input-container'}>
       <input className={'main-input'} value={text} onChange={handleChange} />
-      <button className={'main-button'} disabled={!text} onClick={handleSubmit}>
-        Create a TODO!
+      <button
+        className={!text ? 'main-button edition' : 'main-button'}
+        disabled={!text}
+        onClick={handleSubmit}>
+        {icon}
       </button>
     </div>
   );
