@@ -17,6 +17,10 @@ function Todo({ todo }) {
     curr,
     setCurr
   } = todo;
+
+  const onDelete = () => handleDelete(id);
+  const onDone = () => handleDone(id);
+
   return (
     <div className={'block-container'}>
       <div>{date}</div>
@@ -33,7 +37,7 @@ function Todo({ todo }) {
           <Text text={text} setDblClicked={setDblClicked} setCurr={setCurr} id={id} />
         )}
       </>
-      <div onClick={() => handleDone(id)}>
+      <div onClick={onDone}>
         {status ? (
           <MdOutlineDoneAll className={dblClicked ? 'icon-done edition' : 'icon-done'} />
         ) : (
@@ -43,7 +47,7 @@ function Todo({ todo }) {
       <div>
         <MdOutlineClose
           className={dblClicked ? 'icon-delete edition' : 'icon-delete'}
-          onClick={() => handleDelete(id)}
+          onClick={onDelete}
         />
       </div>
     </div>

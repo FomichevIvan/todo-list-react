@@ -1,7 +1,6 @@
 import { useCallback, useState } from 'react';
 import ControlledInput from './components/ControlledInput';
 import Layout from './components/Layout';
-import Todo from './components/Todo';
 import { MdOutlinePlayArrow } from 'react-icons/md';
 import './App.css';
 
@@ -40,27 +39,7 @@ function App() {
     setList((prevState) => [todo, ...prevState]);
   }, []);
 
-  const elements = list?.map(({ id, text, status, createdAt }) => {
-    return (
-      <Todo
-        key={id}
-        todo={{
-          id,
-          text,
-          status,
-          date: createdAt.toDateString(),
-          handleDone,
-          handleDelete,
-          dblClicked,
-          setDblClicked,
-          handleEdit,
-          curr,
-          setCurr
-        }}
-      />
-    );
-  });
-
+  const onStart = () => setStarted(true);
   return (
     <div className="App">
       {started ? (
@@ -70,9 +49,20 @@ function App() {
         />
       ) : null}
       {list.length ? (
-        <Layout todos={elements} />
+        <Layout
+          todos={list}
+          attr={{
+            handleDone,
+            handleDelete,
+            handleEdit,
+            curr,
+            setCurr,
+            dblClicked,
+            setDblClicked
+          }}
+        />
       ) : (
-        <button onClick={() => setStarted(true)} className={started ? 'start-none' : 'start'}>
+        <button onClick={onStart} className={started ? 'start-none' : 'start'}>
           Start to proctrastinate!
         </button>
       )}

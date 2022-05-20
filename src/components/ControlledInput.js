@@ -4,9 +4,7 @@ import { useState, memo } from 'react';
 function ControlledInput({ handleList, icon }) {
   const [text, setText] = useState('');
 
-  const handleChange = (e) => {
-    setText(e.target.value);
-  };
+  const handleChange = (e) => setText(e.target.value);
 
   const handleSubmit = () => {
     const newTodo = new Todo(text);
