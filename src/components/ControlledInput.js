@@ -1,16 +1,20 @@
 import Todo from '../utils/todo';
 import { useState, memo } from 'react';
 
-function ControlledInput({ handleList, icon }) {
+function ControlledInput({ handleList, icon, dispatch }) {
   const [text, setText] = useState('');
 
   const handleChange = (e) => setText(e.target.value);
 
   const handleSubmit = () => {
     const newTodo = new Todo(text);
-    handleList(newTodo);
+    dispatch({ type: 'ADD_TODO', payload: newTodo });
     setText('');
   };
+
+  // const handleSubmit = () => {
+  //   dispatch({ type: 'CREATE_TODO' });
+  // };
 
   return (
     <div className={'input-container'}>

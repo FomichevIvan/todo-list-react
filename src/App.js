@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useReducer } from 'react';
 import ControlledInput from './components/ControlledInput';
 import Layout from './components/Layout';
 import { MdOutlinePlayArrow } from 'react-icons/md';
@@ -9,6 +9,24 @@ function App() {
   const [curr, setCurr] = useState('');
   const [started, setStarted] = useState(false);
   const [dblClicked, setDblClicked] = useState(false);
+
+  const initialState = {
+    list: [],
+    curr: '',
+    started: false,
+    dblClicked: false
+  };
+  const reducer = (state, action) => {
+    switch (action.type) {
+      case 'ADD_TODO':
+        return { ...state, list: [...state.list, action.payload] };
+      default:
+        throw new Error();
+    }
+  };
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  console.log(state, 'state');
 
   const handleDone = (id) => {
     setList((list) =>
@@ -44,13 +62,14 @@ function App() {
     <div className="App">
       {started ? (
         <ControlledInput
+          dispatch={dispatch}
           handleList={handleList}
           icon={<MdOutlinePlayArrow className={'icon-start'} />}
         />
       ) : null}
-      {list.length ? (
+      {state.list.length ? (
         <Layout
-          todos={list}
+          todos={state.list}
           attr={{
             handleDone,
             handleDelete,
